@@ -9,9 +9,8 @@ class App extends Component {
     };
 
     componentDidMount() {
-        axios.defaults.headers.common['Authorization'] = process.env.REACT_APP_API_KEY;
-        axios.get('https://api.yelp.com/v3/businesses/search')
-            .then(res => console.log(res.name));
+        axios.get('http://localhost:3001/yelp/api')
+            .then(res => console.log(res.data.name));
     };
 
     render() {
