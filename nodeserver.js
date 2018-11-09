@@ -13,8 +13,8 @@ app.use(function(req, res, next) {
 });
 
 const searchRequest = {
-  term:'Four Barrel Coffee',
-  location: 'san francisco, ca'
+  term:'Brew Tea Bar',
+  location: 'Las Vegas, NV'
 };
 
 const client = yelp.client(apiKey);
