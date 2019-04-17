@@ -1,4 +1,3 @@
-'use strict';
 require('dotenv').config();
 const express = require('express');
 const app = express();
@@ -13,8 +12,9 @@ app.use(function(req, res, next) {
 });
 
 const searchRequest = {
-  term:'Brew Tea Bar',
-  location: 'Las Vegas, NV'
+  term: 'food',
+  limit: 50,
+  location: '89129'
 };
 
 const client = yelp.client(apiKey);
@@ -22,11 +22,9 @@ const client = yelp.client(apiKey);
 
 app.get('/yelp/api', (req, res, next) => {
   client.search(searchRequest).then(response => {
-  const firstResult = response.jsonBody.businesses[0];
+  const firstResult = response.jsonBody.businesses;
   const prettyJson = JSON.stringify(firstResult, null, 4);
   res.send(prettyJson)});
 });
 
 app.listen(port, () => console.log(`server is on port ${port} boi`))
-
-
