@@ -17,16 +17,16 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.post('/location', (req, res) => {
-    var name = req.body.name
-    console.log(name);
-})
-
 const searchRequest = {
-  term: 'food',
   limit: 50,
+  term: 'food',
   location: '89129'
 };
+
+app.post('/location', (req, res) => {
+    searchRequest.term = req.body.term;
+    searchRequest.location = req.body.location;
+});
 
 const client = yelp.client(apiKey);
 

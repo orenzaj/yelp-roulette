@@ -8,15 +8,16 @@ class Restarauntlist extends Component {
     };
 
     componentDidMount() {
-        axios.get('http://localhost:3001/yelp/api')
+        axios.get('http://localhost:3000/yelp/api')
             .then(res => {
                 let restaraunts = res.data.map(names => {
                     return (
                         <li key={names.id}>{names.name}</li>
                     );
                 });
+
                 this.setState({ restaurant: restaraunts});
-            });
+            })
     }
 
     render() {
