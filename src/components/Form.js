@@ -17,8 +17,6 @@ class Form extends Component {
             term: this.state.term,
             location: this.state.location
         });
-
-        console.log(this.state.submitted);
     }
 
     getTerm = (e) =>  {
@@ -34,9 +32,8 @@ class Form extends Component {
             <div>
             <form onSubmit={this.submit}>
                 <label>
-                    Name:
-                    <input type="text" value={this.state.term} onChange={this.getTerm} />
-                    <input type="text" value={this.state.location} onChange={this.getLocation} />
+                    <input type="text" value={this.state.term} onChange={this.getTerm} placeholder={this.props.searchTerm} />
+                    <input type="text" value={this.state.location} onChange={this.getLocation} placeholder={this.props.location}/>
                 </label>
                 <input type="submit" value="Submit" />
             </form>

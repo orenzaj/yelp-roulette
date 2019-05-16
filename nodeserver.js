@@ -1,14 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 4000;
 const yelp = require('yelp-fusion');
 const cors = require('cors');
 const apiKey = process.env.REACT_APP_API_KEY;
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-
 app.use(cors());
 
 app.use(function(req, res, next) {
@@ -30,6 +29,7 @@ app.post('/location', (req, res) => {
 
 const client = yelp.client(apiKey);
 
+app.get('')
 
 app.get('/yelp/api', (req, res, next) => {
   client.search(searchRequest).then(response => {
